@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<body onload="move()">
+<div id="circle" style="position:absolute;left:50px;top:50px;width:100px; height:100px; background-color:black; border-radius:50%;">
+
+</div>
+</body>
+<script type="text/javascript">
+var vel_horz = 0;
+var pos_horz = 50;
+var vel_vert = 0;
+var pos_vert = 50;
+window.setInterval(
+	function posmove(){
+		pos_horz += vel_horz;
+		if (pos_horz > 1650){
+			vel_horz = -vel_horz
+		}
+		if (pos_horz < 0){
+			vel_horz = -vel_horz
+		}
+
+		pos_vert += vel_vert;
+		if (pos_vert > 760){
+			vel_vert = -vel_vert
+		}
+		if (pos_vert < 0){
+			vel_vert = -vel_vert
+		}
+
+		document.getElementById('circle').style.left = pos_horz + "px";
+		document.getElementById('circle').style.top = pos_vert + "px";
+
+	}, 1000/60);
+function move(){
+
+	var acc_horz = 5;
+	vel_horz += acc_horz
+
+	var acc_vert = 5;
+	vel_vert += acc_vert
+}
+</script>
+</html>
